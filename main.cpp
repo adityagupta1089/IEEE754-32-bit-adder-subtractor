@@ -58,6 +58,7 @@ int64_t* get(int64_t x) {
 	arr[EXP] = (x & 0x7F800000) >> 23;
 	arr[FRAC] = (x & 0x7FFFFF);
 	return arr;
+	delete arr;
 }
 
 int64_t add(int64_t x, int64_t y) {
@@ -89,6 +90,9 @@ int64_t add(int64_t x, int64_t y) {
 		sum[EXP] = 0;
 	}
 	return (sum[SIGN] << 31) + (sum[EXP] << 23) + sum[FRAC];
+	delete a;
+	delete b;
+	delete sum;
 }
 
 int main() {
